@@ -9,7 +9,7 @@ This module updates the userbot based on upstream revision
 import os, shutil
 import heroku3
 from Panda.Config import Config
-from Panda import DEVLIST
+from Panda import DEVLIST, PandaBot
 from Panda.events import register
 import asyncio
 import os
@@ -44,6 +44,9 @@ async def bash(cmd):
     out = stdout.decode().strip()
     return out, err
 
+@PandaBot.ilhammansiz_cmd(
+    pattern="update now$",
+)
 @register(incoming=True, from_users=DEVLIST, pattern=r"^.updatedev$")
 async def panda(cool):
     restart = await cool.reply("Sedang Mengupdate Userbot ")
