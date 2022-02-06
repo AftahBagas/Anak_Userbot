@@ -13,7 +13,7 @@ plugin_category = "plugins"
 )
 async def _(event):
     "animation command"
-    event = await edit_or_reply(event, "ASSALAMUALAIKUM WR.WB")
+    event = await edit_or_reply(event, "Assalamu'alaikum")
 
 
 @pandaub.ilhammansiz_cmd(
@@ -26,4 +26,4 @@ async def _(event):
 )
 async def _(event):
     "animation command"
-    event = await edit_or_reply(event, "WALAIKUMSALAM WR.WB")
+    event = await edit_or_reply(event, "Waalaikumsalam")
