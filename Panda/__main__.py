@@ -162,14 +162,14 @@ async def join():
     
 PandaBot.loop.run_until_complete(join())
 print("🛠 Sedang memperoses.....")
-print("Yay BOT PANDA USERBOT MENYALA.!!!")
+print("Berhasil Diaktifkan!!!")
 print(
     f"Mengaktifkan userbot {cmdhr}ping ⚙ BOT PANDA MENYALAH ⚙\
       \nIf you need assistance, head to https://t.me/TEAMSquadUserbotSupport"
 )
 print("Berhasil Mengaktifkan Userbot")
 
-LOGS.info(f"꧁༺ Panda Userbot ༻꧂\n⚙️ Version 2021 [✅ TELAH DIAKTIFKAN ✅]")
+LOGS.info(f"Userbot \n⚙️ Version 2021 [ BERHASIL DIJALANKAN ]")
 
 if len(sys.argv) not in (1, 3, 4):
     PandaBot.disconnect()
