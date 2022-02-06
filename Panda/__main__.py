@@ -169,7 +169,7 @@ print(
 )
 print("Berhasil Mengaktifkan Userbot")
 
-LOGS.info(f"꧁༺ Panda Userbot ༻꧂\n⚙️ Version 2021 [TELAH DIAKTIFKAN]")
+LOGS.info(f"꧁༺ Panda Userbot ༻꧂\n⚙️ Version 2021 [✅ TELAH DIAKTIFKAN ✅]")
 
 if len(sys.argv) not in (1, 3, 4):
     PandaBot.disconnect()
