@@ -30,15 +30,17 @@ async def _(event):
         end = datetime.now()
         tms = (end - start).microseconds / 1000
         ms = round((tms - 0.6) / 3, 3)
-        await pandaevent.edit(f"𝗣𝗶𝗻𝗴\n`{ms} ms`")
+        await pandaevent.edit(f"Ping\n`{ms} ms`")
     else:
-        pandaevent = await edit_or_reply(event, "🐼")
-        await pandaevent.edit("⚡")
-        await pandaevent.edit("👍")
+        pandaevent = await edit_or_reply(event, "|")
+        await pandaevent.edit("__T__")
+        await pandaevent.edit("__Te__")
+        await pandaevent.edit("__Tes__")
+        await pandaevent.edit("__Test__")
         end = datetime.now()
         ms = (end - start).microseconds / 1000
         await pandaevent.edit(
-            f"┏━《 **𝗣 𝗔 𝗡 𝗗 𝗔** 》━\n"
-            f"┣➠  __Ping:__ `{ms} ms`\n"
-            f"┗➠ 𝗢𝘄𝗻𝗲𝗿𝘀: {mention} "
+            f"╭《 **U S E R B O T** 》\n"
+            f"┗☉ **Ping =** `{ms} ms`\n"
+            f"┗☉ **Milik =*# {mention} "
         )
