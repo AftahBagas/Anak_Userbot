@@ -1,6 +1,6 @@
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=ilhammansiz&label=Profile%20views&color=0e75b6&style=plastic" alt="ilhammansiz" /> </p>
 
-Panda_Userbot adalah userbot Telegram modular yang berjalan di Python3 dengan database sqlalchemy.
+New_Userbot adalah Panda Userbot Yang Dimodifikasi yang berjalan di Python3 dengan database sqlalchemy.
 
 Berbasis [Cat](https://github.com/sandy1709/catuserbot) ➡ [Ultroid](https://github.com/TeamUltroid/Ultroid) ➡ [Userge](https://github.com/UsergeTeam/Userge) & [Uniborg](https://github.com/udf/uniborg) userbot. Saya membuat repository ini untuk memilih dan menambahkan beberapa modul yang saya butuhkan dengan banyak perubahan, fitur dan modul.
 
