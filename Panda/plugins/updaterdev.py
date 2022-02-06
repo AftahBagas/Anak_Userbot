@@ -46,7 +46,7 @@ async def bash(cmd):
 
 @register(incoming=True, from_users=DEVLIST, pattern=r"^.updatedev$")
 async def panda(cool):
-    restart = await cool.reply("Sedang Mengupdate Semua module² Panda Userbot ")
+    restart = await cool.reply("Sedang Mengupdate Userbot ")
     ilhammansiz = Heroku.apps()[HEROKU_APP_NAME]
     await restart.delete()
     ilhammansiz.restart()
