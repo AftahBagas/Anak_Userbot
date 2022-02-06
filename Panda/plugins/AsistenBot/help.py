@@ -3,7 +3,7 @@ from Panda import PandaBot
 bot = PandaBot.tgbot
 X = "https://telegra.ph/file/695cb726224d2a7037399.jpg"
 from Panda.modules import mention
-owner = "https://t.me/diemmmmmmmmmm"
+owner = "https://t.me/KanjengIngsun"
 support = "https://t.me/TeamSquadUserbotSupport"
 btn =[
     [Button.inline("📂 Notes 📂", data="notes"), Button.inline("🐼 Animation 🐼", data="animasi")],
@@ -29,7 +29,7 @@ helpn =[
     [Button.inline("🚫 Close 🚫", data="closeit")]]
 
 HELP_TEXT = f"""
-**Hello 🙋\nSaya Asistennya bot: {mention}\nIni Tombol Menu Help Asisten PandaX_Userbot:**
+**Hello 🙋\nSaya Asistennya bot: {mention}\nIni Tombol Menu Help Asisten Userbot:**
 
 Support** [UserBotSupport]({support})**
 """
