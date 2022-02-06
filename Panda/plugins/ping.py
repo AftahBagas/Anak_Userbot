@@ -42,5 +42,5 @@ async def _(event):
         await pandaevent.edit(
             f"╭《 **U S E R B O T** 》\n"
             f"┗☉ **Ping =** `{ms} ms`\n"
-            f"┗☉ **Milik =**# {mention} "
+            f"┗☉ **Milik =** #{mention} "
         )
