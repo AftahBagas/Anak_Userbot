@@ -196,7 +196,7 @@ def paginate_help(
                         "« Kembali", data=f"{prefix}_prev({modulo_page})_plugin"
                     ),
                     Button.inline("Main Menu", data="mainmenu"),
-                    Button.inline("Lenjut ", data=f"{prefix}_next({modulo_page})_plugin"),
+                    Button.inline("Lanjut ", data=f"{prefix}_next({modulo_page})_plugin"),
                 )
             ]
         else:
