@@ -45,22 +45,21 @@ LOGO = Config.ALIVE_PIC = gvarstatus("ALIVE_PIC") or "https://telegra.ph/file/37
 async def redis(alive):
     await pandaub.get_me()
     await get_readable_time((time.time() - StartTime))
-    await alive.edit("꧁༺ Panda Userbot ༻꧂")
-    await alive.edit("꧁༺ Userbot ༻꧂")
-    await alive.edit("🎰")
-    await asyncio.sleep(2)
+    await alive.edit("`Alive`")
+    await alive.edit("`I Am Userbot`")
+    await asyncio.sleep(1)
     output = (
         f"**{CUSTOM_ALIVE_TEXT}**\n\n"
-        f"┏━━━━━━━━━━━━━━━━━\n"
-        f"┣||🚹 `Pengguna:` {NAME}\n"
-        f"┣||✍ `Telethon:` {version.__version__}\n"
-        f"┣||🐍 `Python:` {python_version()}\n"
-        f"┣||👾 `Pytgcalls:` {__version__}\n"
-        f"┣||⏳ `Branch:` PandaUserbot\n"
-        f"┣||🚀 `Bot Version:` {pandaversion}\n"
-        f"┣||✅ `Sudo:` {SUDO}\n"
-        f"┣||👥 `ID Sudo:` {SUDOuser}\n"
-        f"┗━━━━━━━━━━━━━━━━━ \n")
+        f"┏➖➖➖➖➖➖➖➖➖➖\n"
+        f"┣ • 🚹 `Pengguna:` {NAME}\n"
+        f"┣ • ✍ `Telethon:` {version.__version__}\n"
+        f"┣ • 🐍 `Python:` {python_version()}\n"
+        f"┣ • 👾 `Pytgcalls:` {__version__}\n"
+        f"┣ • ⏳ `Branch:` PandaUserbot\n"
+        f"┣ • 🚀 `Bot Version:` {pandaversion}\n"
+        f"┣ • ✅ `Sudo:` {SUDO}\n"
+        f"┣ • 👥 `ID Sudo:` {SUDOuser}\n"
+        f"┗➖➖➖➖➖➖➖➖➖➖ \n")
     if LOGO:
         try:
             logo = LOGO
