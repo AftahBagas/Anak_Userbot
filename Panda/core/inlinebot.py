@@ -62,7 +62,7 @@ import time
 
 from ..Config import Config
 
-CUSTOM_HELP_TEXT = gvarstatus("HELP_TEXT_INLINE") or  "🛠 INLINE MENU 🛠"
+CUSTOM_HELP_TEXT = gvarstatus("HELP_TEXT_INLINE") or  "🛠️ MENU BANTUAN BOT 🛠️"
 EMOJI = Config.CUSTOM_ALIVE_EMOJI or "🎴"
 
 def settingvar(dat):
@@ -72,25 +72,25 @@ def settingvar(dat):
     return ultr
 
 def main_menu():
-    text = f"**{CUSTOM_HELP_TEXT}**\n\n  **Pengguna :** {mention}\n  Plugins:** {len(GRP_INFO['plugins'])}\n**  Modules: **{len(GRP_INFO['modules'])}**\n  Commands:** {len(CMD_INFO)}\n**"
+    text = f"**{CUSTOM_HELP_TEXT}**\n\n  **Pengguna :** {mention}\n  Plugins:** {len(GRP_INFO['plugins'])}\n**"
     buttons = [
         (
             Button.url(
-                "Support",
-                "https://t.me/TEAMSquadUserbotSupport",
+                "Pencipta",
+                "https://t.me/KanjengIngsun",
             ),
             Button.inline(
-                f"💎 𝙸𝚗𝚏𝚘",
+                f"❕ Info",
                 data="check",
             ),
         ),
         (
             Button.inline(
-                f"✅ Plugins ({len(GRP_INFO['plugins'])})",
+                f"❔ Plugins ({len(GRP_INFO['plugins'])})",
                 data=f"plugins_menu",
             ),
             Button.inline(
-                f"☑️ Modules ({len(GRP_INFO['modules'])})",
+                f"❔ Modules ({len(GRP_INFO['modules'])})",
                 data=f"modules_menu",
             ),
         ),
@@ -106,7 +106,7 @@ def main_menu():
         ),
         (
             Button.inline(
-                f"🔒 𝙲𝚕𝚘𝚜𝚎 𝙼𝚎𝚗𝚞",
+                f"Tutup",
                 data=f"close",
             ),
         ),
@@ -193,10 +193,10 @@ def paginate_help(
             ] + [
                 (
                     Button.inline(
-                        "« Pʀᴇᴠɪᴏᴜs", data=f"{prefix}_prev({modulo_page})_plugin"
+                        "« Kembali", data=f"{prefix}_prev({modulo_page})_plugin"
                     ),
                     Button.inline("Main Menu", data="mainmenu"),
-                    Button.inline("Nᴇxᴛ ", data=f"{prefix}_next({modulo_page})_plugin"),
+                    Button.inline("Lenjut ", data=f"{prefix}_next({modulo_page})_plugin"),
                 )
             ]
         else:
@@ -208,15 +208,15 @@ def paginate_help(
             ] + [
                 (
                     Button.inline(
-                        "« Pʀᴇᴠɪᴏᴜs",
+                        "« Kembali",
                         data=f"{prefix}_prev({modulo_page})_command_{category_plugins}_{category_pgno}",
                     ),
                     Button.inline(
-                        "« Bᴀᴄᴋ ",
+                        "« Keluar ",
                         data=f"back_plugin_{category_plugins}_{category_pgno}",
                     ),
                     Button.inline(
-                        "Nᴇxᴛ »",
+                        "Lanjut »",
                         data=f"{prefix}_next({modulo_page})_command_{category_plugins}_{category_pgno}",
                     ),
                 )
@@ -225,7 +225,7 @@ def paginate_help(
             pairs = pairs + [
                 (
                     Button.inline(
-                        "« Bᴀᴄᴋ » ",
+                        "« Keluar » ",
                         data=f"back_plugin_{category_plugins}_{category_pgno}",
                     ),
                 )
@@ -250,7 +250,7 @@ async def inline_handler(event):  # sourcery no-metrics
             buttons = [
                 (
                     Button.inline("Stats", data="stats"),
-                    Button.url("Repo", "https://github.com/ilhammansiz/PandaX_Userbot"),
+                    Button.url("Pencipta", "https://t.me/KanjengIngsun"),
                 )
             ]
             PANDA_IMG = Config.ALIVE_PIC or None
@@ -484,11 +484,11 @@ async def inline_handler(event):  # sourcery no-metrics
         buttons = [
             (
                 Button.url(
-                    "Source code", "https://github.com/ilhammansiz/PandaX_Userbot"
+                    "Source code", "https://github.com/AftahBagas/Anak_Userbot"
                 ),
                 Button.url(
                     "Deploy",
-                    "https://t.me/PandaUserbot/13",
+                    "https://t.me/KanjengIngsun",
                 ),
             )
         ]
@@ -519,8 +519,7 @@ async def inline_handler(event):  # sourcery no-metrics
 async def on_plugin_callback_query_handler(event):
     await event.edit(
         buttons=[
-            Button.inline("❌ Hapus semua ❌", data="dara"),
-            Button.inline("MENU UTAMA", data="mainmenu"),
+            Button.inline("Buka Kembali", data="mainmenu"),
         ],
     )
 
@@ -560,8 +559,8 @@ async def on_plugin_callback_query_handler(event):
         file=ilhammansiez,
         link_preview=True,
         buttons=[
-            Button.url("🤖 SUPPORT 🤖", "https://t.me/TEAMSquadUserbotSupport"),
-            Button.url("🐼 Creator 🐼", "https://t.me/diemmmmmmmmmm"),
+            Button.url("Support", "https://t.me/TEAMSquadUserbotSupport"),
+            Button.url("Creator", "https://t.me/KanjengIngsun"),
             Button.inline("⚙ Menu ⚙", data="mainmenu"),
         ],
     )
@@ -572,9 +571,9 @@ async def on_plugin_callback_query_handler(event):
 async def on_plug_in_callback_query_handler(event):
     category = str(event.pattern_match.group(1).decode("UTF-8"))
     buttons = paginate_help(0, GRP_INFO[category], category)
-    text = f"**꧁༺ Panda Userbot ༻꧂\n\n༺🐼༻ Category: **{category}\
-        \n**༺🐼༻  Total plugins :** {len(GRP_INFO[category])}\
-        \n**༺🐼༻  Total Commands:** {command_in_category(category)}\n\n꧁༺  HELP MENU ༻꧂"
+    text = f"**Userbot Telegram \n\n🛠️ Category: **{category}\
+        \n**🛠️  Total plugins :** {len(GRP_INFO[category])}\
+        \n**🛠️  Total Commands:** {command_in_category(category)}"
     await event.edit(text, buttons=buttons)
 
 
@@ -590,9 +589,9 @@ async def on_plug_in_callback_query_handler(event):
     pgno = int(event.pattern_match.group(3).decode("UTF-8"))
     if mtype == "plugin":
         buttons = paginate_help(pgno, GRP_INFO[category], category)
-        text = f"**꧁༺ Panda Userbot ༻꧂\n\n༺🐼༻ Category: **`{category}`\
-        \n**༺🐼༻ Total plugins :** __{len(GRP_INFO[category])}__\
-        \n**༺🐼༻ Total Commands:** __{command_in_category(category)}__\n\n꧁༺  HELP MENU ༻꧂"
+        text = f"**Userbot Telegram\n\n🛠️ Category: **`{category}`\
+        \n**🛠️ Total plugins :** __{len(GRP_INFO[category])}__\
+        \n**🛠️ Total Commands:** __{command_in_category(category)}__"
     else:
         category_plugins = str(event.pattern_match.group(4).decode("UTF-8"))
         category_pgno = int(event.pattern_match.group(5).decode("UTF-8"))
@@ -604,9 +603,9 @@ async def on_plug_in_callback_query_handler(event):
             category_plugins=category_plugins,
             category_pgno=category_pgno,
         )
-        text = f"**꧁༺ Panda Userbot ༻꧂\n\n༺🐼༻ Plugin: **`{category}`\
-                \n**༺🐼༻ Category: **__{getkey(category)}__\
-                \n**༺🐼༻ Total Commands:** __{len(PLG_INFO[category])}__\n\n꧁༺  HELP MENU ༻꧂"
+        text = f"**Userbot Telegram\n\n🛠️ Plugin: **`{category}`\
+                \n**🛠️ Category: **__{getkey(category)}__\
+                \n*🛠️ Total Commands:** __{len(PLG_INFO[category])}__"
     await event.edit(text, buttons=buttons)
 
 
@@ -638,9 +637,9 @@ async def on_plug_in_callback_query_handler(event):
             category_plugins=category_plugins,
             category_pgno=category_pgno,
         )
-        text = f"**꧁༺ Panda Userbot ༻꧂\n\n༺🐼༻ Plugin: **`{category}`\
-                \n**༺🐼༻ Category: **__{getkey(category)}__\
-                \n**༺🐼༻ Total Commands:** __{len(PLG_INFO[category])}__\n\n꧁༺  HELP MENU ༻꧂"
+        text = f"**Telegram Userbot\n\n🛠️ Plugin: **`{category}`\
+                \n**🛠️ Category: **__{getkey(category)}__\
+                \n**🛠️ Total Commands:** __{len(PLG_INFO[category])}__"
         try:
             return await event.edit(text, buttons=buttons)
         except Exception:
@@ -689,16 +688,16 @@ async def on_plug_in_callback_query_handler(event):
     buttons = [
         (
             Button.inline(
-                "« Bᴀᴄᴋ » ",
+                "« Keluar » ",
                 data=f"back_command_{category}_{pgno}_{category_plugins}_{category_pgno}",
             ),
             Button.inline("Main Menu", data="mainmenu"),
         )
     ]
-    text = f"**꧁༺ Panda Userbot ༻꧂\n\n༺🐼༻ Command :** `{tr}{cmd}`\
-        \n**༺🐼༻ Plugin :** `{category}`\
-        \n**༺🐼༻ Category :** `{category_plugins}`\
-        \n\n**༺🐼༻ Intro :**\n{CMD_INFO[cmd][0]}\n\n꧁༺  HELP MENU ༻꧂"
+    text = f"**Telegram Userbot\n\n🛠️ Command :** `{tr}{cmd}`\
+        \n**🛠️ Plugin :** `{category}`\
+        \n**🛠️ Category :** `{category_plugins}`\
+        \n\n**🛠️ Intro :**\n{CMD_INFO[cmd][0]}"
     await event.edit(text, buttons=buttons)
 
 
@@ -784,7 +783,7 @@ async def setting(event, name, value):
         return await event.edit("**Maaf Gagal Menyimpan Dikarenakan ERROR**")
 
 def get_back_button(name):
-    return [Button.inline("ʙᴀᴄᴋ", data=f"{name}")]
+    return [Button.inline("Back", data=f"{name}")]
 
 
 
@@ -807,8 +806,8 @@ async def on_plugin_callback_query_handler(event):
         "**Silahkan Pilih VAR yang ingin anda Setting**",
         buttons=[
             [
-                Button.inline("ᴀʟɪᴠᴇ ɴᴀᴍᴇ", data="alivename"),
-                Button.inline("ʜᴀɴᴅʟᴇʀ", data="cmd"),
+                Button.inline("ALIVE NAME", data="alivename"),
+                Button.inline("HANDLER", data="cmd"),
                 Button.inline("LOGO HELP", data="helplogo"),
             ],
             [
