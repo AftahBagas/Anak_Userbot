@@ -122,13 +122,13 @@ async def do_pm_permit_action(event, chat):  # sourcery no-metrics
     else:
         USER_BOT_NO_WARN = """
 ╔════════════════════╗
-    ✅ **NO SPAM PLEASE ✅
+    ❕ **NO SPAM PLEASE ❕
 ╚════════════════════╝
 • Saya belum menyetujui anda untuk PM.
 • Tunggu sampai saya menyetujui PM anda.
 • Jangan Spam Chat atau anda akan otomatis diblokir.
 ╔════════════════════╗
-    **Pesan Otomatis By Userbot**
+    **Pesan Otomatis By Userbot
 ╚════════════════════╝"""
     addgvar("pmpermit_text", USER_BOT_NO_WARN)
     PM_WARNS[str(chat.id)] += 1
@@ -207,7 +207,7 @@ async def do_pm_enquire_action(event, chat):
         PMMESSAGE_CACHE = {}
     if str(chat.id) not in PM_WARNS:
         text = f"""╔════════════════════╗
-                         ✅ **NO SPAM PLEASE** ✅
+                         ❕ **NO SPAM PLEASE** ❕
                    ╚════════════════════╝
                    • Saya belum menyetujui anda untuk PM.
                    • Tunggu sampai saya menyetujui PM anda.
