@@ -11,7 +11,7 @@ from pytgcalls import __version__
 from ..core.data import _sudousers_list
 from . import mention
 
-CUSTOM_ALIVE_TEXT = Config.CUSTOM_ALIVE_TEXT = SqL.getdb("CUSTOM_ALIVE_TEXT") or "🗜PandaX-Userbot 🗜"
+CUSTOM_ALIVE_TEXT = Config.CUSTOM_ALIVE_TEXT = SqL.getdb("CUSTOM_ALIVE_TEXT") or "𝗣𝗮𝗻𝗱𝗮 𝗡𝗲𝘄 𝗨𝘀𝗲𝗿𝗯𝗼𝘁"
 
 # ================= CONSTANT =================
 DEFAULTUSER = mention
@@ -68,13 +68,13 @@ async def redis(alive):
 aliveess = f"""
 {CUSTOM_ALIVE_TEXT}
 
-☉ 👤 𝗣𝗲𝗻𝗴𝗴𝘂𝗻𝗮: {NAME}
+➤👤 𝗣𝗲𝗻𝗴𝗴𝘂𝗻𝗮: {NAME}
 
-☉ 🛰 𝗩𝗘𝗥𝗦𝗜𝗢𝗡 𝗕𝗢𝗧: `𝚅{pandaversion}`
+➤  𝗩𝗘𝗥𝗦𝗜𝗢𝗡 𝗕𝗢𝗧:    `𝚅{pandaversion}`
 
-☉ 👾 𝗧𝗲𝗹𝗲𝘁𝗵𝗼𝗻: `𝚅{version.__version__}`
-☉ 🎙 𝗣𝘆𝘁𝗴𝗰𝗮𝗹𝗹𝘀: `𝚅{__version__}`
-☉ 🐍 𝗣𝘆𝘁𝗵𝗼𝗻: `𝚅{python_version()}`
+➤  𝗧𝗲𝗹𝗲𝘁𝗵𝗼𝗻: `𝚅{version.__version__}`
+➤  𝗣𝘆𝘁𝗴𝗰𝗮𝗹𝗹𝘀: `𝚅{__version__}`
+➤  𝗣𝘆𝘁𝗵𝗼𝗻: `𝚅{python_version()}`
      
 ➖➖➖➖➖➖➖➖➖➖➖
 ╭━━━━━━━━━━━━━━━━━━╮
