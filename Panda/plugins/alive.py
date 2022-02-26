@@ -42,8 +42,8 @@ LOGO = Config.ALIVE_PIC = SqL.getdb("ALIVE_PIC") or "https://telegra.ph/file/37b
 async def redis(alive):
     await PandaBot.get_me()
     await get_readable_time((time.time() - StartTime))
-    await alive.edit("꧁༺ Panda Userbot ༻꧂")
-    await alive.edit("꧁༺ Userbot ༻꧂")
+    await alive.edit("Alive")
+    await alive.edit("I am Is Alive")
     await asyncio.sleep(1)
     if LOGO:
         try:
