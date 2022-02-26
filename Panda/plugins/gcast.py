@@ -29,5 +29,5 @@ async def gcast(event):
             except BaseException:
                 er += 1
     await kk.edit(
-        f"**╭✠╼━━━━━━❖━━━━━━━✠╮** Broadcast Terkirim Ke =** `{done}` **Grup, Broadcast Gagal Terkirim =** `{er}`**Grup**╰✠╼━━━━━━❖━━━━━━━✠╯**"
+        f"✓ ** Broadcast Terkirim Ke =** `{done}` **Grup, Broadcast Gagal Terkirim =** `{er}`**Grup**❎"
     )
