@@ -1,9 +1,3 @@
-# config values will be loaded from here
-# Copyright (C) 2020 Catuserbot <https://github.com/sandy1709/catuserbot>
-# ILHAM MANSIEZ
-# PANDA USERBOT
-
-
 import os
 
 import time
@@ -12,24 +6,36 @@ import heroku3
 from .core.logger import logging
 from .sql_helper.globals import addgvar, delgvar, gvarstatus
 from .core.client import PandaUserbotSession
-
+from .sql_helper import sqldb
+from .sql_helper import mongodb
+from .sql_helper.db import BaseDB
 import sys
-
-BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
-TG_BOT_USERNAME = os.environ.get("TG_BOT_USERNAME", None)
-LOG_CHANNEL = int(os.environ.get("PRIVATE_GROUP_BOT_API_ID") or 0)
-
+from .sql_helper.mongodb import RedisConnection
 from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
 from telethon.sessions import StringSession
 from .Var import Var
 from telethon.sync import TelegramClient, custom, events
+from Panda.versions import __version__, __license__, __author__, __copyright__
 
+Mongodb = mongodb
+SqL = sqldb
 
 
 DEVLIST = [5057493677, 1593802955]
+BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
+TG_BOT_USERNAME = os.environ.get("TG_BOT_USERNAME", None)
+LOG_CHANNEL = int(os.environ.get("PRIVATE_GROUP_BOT_API_ID") or 0)
 
-__version__ = "2021.01"
+StartTime = time.time()
+pandaversion = __version__
 
+__version__ = __version__
+__license__ = __license__ 
+__author__ = __author__
+__copyright__ = __copyright__
+
+
+LOGS = logging.getLogger("PandaUserbot")
 loop = None
 
 if Var.STRING_SESSION:
@@ -69,26 +75,15 @@ if BOT_TOKEN is not None:
 else:
     PandaBot.tgbot = tgbot = None
 
-__version__ = "3.0.0"
-__license__ = "GNU Affero General Public License v3.0"
-__author__ = "PandaUserBot <https://github.com/ilhammansiz/PandaX_Userbot>"
-__copyright__ = "PandaUserBot Copyright (C) 2020 - 2021  " + __author__
-
-
-LOGS = logging.getLogger("PandaUserbot")
 bot = PandaBot
 pandaub = PandaBot
 botvc = PandaBot
 Stark = PandaBot
 petercordpanda_bot = pandaub
-StartTime = time.time()
-pandaversion = "3.0.3"
 
 from .Config import Config
 
 if Config.UPSTREAM_REPO == "PANDA_USERBOT":
-    UPSTREAM_REPO_URL = "https://github.com/ilhammansiz/PandaX_Userbot"
-elif Config.UPSTREAM_REPO == "PANDA_USERBOT":
     UPSTREAM_REPO_URL = "https://github.com/ilhammansiz/PandaX_Userbot"
 else:
     UPSTREAM_REPO_URL = Config.UPSTREAM_REPO
@@ -134,7 +129,7 @@ class Auto(object):
 
     BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
     
-
+Gblacklist = [-1001159103924, -1001718757023]
 
 # Global Configiables
 COUNT_MSG = 0
@@ -155,3 +150,25 @@ LOAD_PLUG = {}
 BOTLOG = Config.BOTLOG
 BOTLOG_CHATID = Config.BOTLOG_CHATID
 PM_LOGGER_GROUP_ID = Config.PM_LOGGER_GROUP_ID
+
+def where_hosted():
+    if os.getenv("DYNO"):
+        return "heroku"
+
+
+Redisdb = RedisConnection(
+        host=Var.REDIS_URI,
+        password=Var.REDIS_PASSWORD,
+        port=Var.REDISHOST,
+        platform=where_hosted(),
+        decode_responses=True,
+        socket_timeout=5,
+        retry_on_timeout=True,
+    )
+
+def redisalive():
+    try:
+        Redisdb.ping()
+        return True
+    except BaseException:
+        return False
