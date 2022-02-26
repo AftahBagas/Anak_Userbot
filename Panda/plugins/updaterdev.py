@@ -18,7 +18,7 @@ import os
 
 ## ===================================
 
-REPO_URL = "https://github.com/PandaUserbot/Dev"
+REPO_URL = "https://github.com/AftahBagas/New_Userbot"
 HEROKU_APP_NAME = Config.HEROKU_APP_NAME 
 HEROKU_API_KEY = Config.HEROKU_API_KEY
 Heroku = heroku3.from_key(Config.HEROKU_API_KEY)
