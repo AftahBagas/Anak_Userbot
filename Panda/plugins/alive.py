@@ -9,7 +9,7 @@ from ..Config import Config
 from ..helpers.functions import get_readable_time
 from ..sql_helper.globals import gvarstatus
 from pytgcalls import __version__
-CUSTOM_ALIVE_TEXT = Config.CUSTOM_ALIVE_TEXT or "꧁༺ Panda Userbot ༻꧂"
+CUSTOM_ALIVE_TEXT = Config.CUSTOM_ALIVE_TEXT or "Panda New Userbot"
 
 from ..sql_helper.globals import gvarstatus
 from ..core.data import _sudousers_list
@@ -43,28 +43,16 @@ LOGO = Config.ALIVE_PIC = gvarstatus("ALIVE_PIC") or "https://telegra.ph/file/37
     },
 )
 async def redis(alive):
-    await pandaub.get_me()
+    await PandaBot.get_me()
     await get_readable_time((time.time() - StartTime))
-    await alive.edit("`Alive`")
-    await alive.edit("`I Am Userbot`")
+    await alive.edit("꧁༺ Panda Userbot ༻꧂")
+    await alive.edit("꧁༺ Userbot ༻꧂")
     await asyncio.sleep(1)
-    output = (
-        f"**{CUSTOM_ALIVE_TEXT}**\n\n"
-        f"┏➖➖➖➖➖➖➖➖➖➖\n"
-        f"┃⑆ `Pengguna:` {NAME}\n"
-        f"┃⑆ `Telethon:` {version.__version__}\n"
-        f"┃⑆ `Python:` {python_version()}\n"
-        f"┃⑆ `Pytgcalls:` {__version__}\n"
-        f"┃⑆ `Branch:` PandaUserbot\n"
-        f"┃⑆ `Bot Version:` {pandaversion}\n"
-        f"┃⑆ `Sudo:` {SUDO}\n"
-        f"┃⑆ `ID Sudo:` {SUDOuser}\n"
-        f"┗➖➖➖➖➖➖➖➖➖➖ \n")
     if LOGO:
         try:
             logo = LOGO
             await alive.delete()
-            msg = await pandaub.send_file(alive.chat_id, logo, caption=output)
+            msg = await PandaBot.send_file(alive.chat_id, logo, caption=aliveess)
             await asyncio.sleep(500)
             await msg.delete()
         except BaseException:
@@ -80,5 +68,26 @@ async def redis(alive):
         await alive.delete()
 
 
+aliveess = f"""
+{CUSTOM_ALIVE_TEXT}
 
+⦿ 👤 **Pemilik**: {NAME}
 
+⦿ 🛰 **VERSION-BOT**: `𝚅{pandaversion}`
+
+⦿ 👾 **Telethon**: `𝚅{version.__version__}`
+⦿ 🎙 **Pythcalls**: `𝚅{__version__}`
+⦿ 🐍 **Python**: `𝚅{python_version()}`
+     
+➖➖➖➖➖➖➖➖➖➖➖
+╭─────────────────╮
+                **Database**:
+
+⦿ 🐘 **DB_Sql**: `{check_data_base_heal_th()}`
+⦿ 🗺 **Mongo_DB**: `{Mongodb.ping()}`
+⦿ 🚀 **Redis_DB**: `{redisalive()}`
+⦿ 👥 **Sudo Info**: {SUDO}
+
+╰─────────────────╯
+➖➖➖➖➖➖➖➖➖➖➖
+"""
