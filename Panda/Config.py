@@ -21,7 +21,7 @@ class Config(object):
     TG_BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
     TZ = os.environ.get("TZ", "Asia/Jakarta")
     UPSTREAM_REPO = os.environ.get(
-        "UPSTREAM_REPO", "https://github.com/ilhammansiz/PandaX_Userbot.git"
+        "UPSTREAM_REPO", "https://github.com/AftahBagas/New_Userbot.git"
     )
     AUTONAME = os.environ.get("AUTONAME", None)
     PRIVATE_GROUP_BOT_API_ID = int(os.environ.get("PRIVATE_GROUP_BOT_API_ID") or 0)
