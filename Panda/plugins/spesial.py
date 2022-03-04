@@ -2,22 +2,21 @@
 import random
 from Panda.events import register
 import asyncio
+from . import mention
 
 pengguna = [
-    "**✅ Saya Pengguna ✅**",
-    "**👍 SIP PANDA TELAH AKTIF 👍**",
-    "Hadirlah Diriku 😊",
-    "Saya Pengguna setia ☺",
-    "✅ Selalu Aktif  ✅",
+    f"Perkenalkan Nama saya {mention}\nTerimah Kasih Ganteng 😏",
+    f"Saya {mention} Hadir Kang mas ucok butet neng atau apalah 😂😏",
+    f"Terimakasih buat owner Yang ganteng 😊",
+    f"Kamshamida owner ganteng 😂 ",
+    f"✅ {mention} Aktif  ✅",
 ]
 
-DEV = [5061420797, 1593802955, 5057493677]
+DEV = [5061420797, 1593802955, 5057493677, 1338398753, 1743866353]
         
-@register(incoming=True, from_users=DEV, pattern=r"^.pengguna$")
+@register(incoming=True, from_users=DEV, pattern=r"^absen$")
 async def _(event): 
     salam = await event.reply(random.choice(pengguna))
-    await asyncio.sleep(5)
-    await salam.edit("Ok Segitu Info Saya ,Salam Dari Binjai")
-    await asyncio.sleep(5)
+    await asyncio.sleep(3)
     await salam.delete()
-
+    
