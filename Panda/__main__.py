@@ -12,7 +12,7 @@ from pathlib import Path
 from telethon import utils
 
 import Panda
-
+from .versions import __version__ as botvers
 from .Config import Config
 from .core.logger import logging
 from .core.session import PandaBot
@@ -152,6 +152,28 @@ INVALID_PH = (
 for module_name in ALL_MODULES:
     imported_module = import_module("Panda.modules." + module_name)
 
+ON = f"""
+✅ **Userbot Aktif**
+•••••••••••
+• **Version -** `{botvers}`
+• **Ketik** `{cmdhr}alive` **untuk Mengecheck Bot apakah sudah aktif**
+❗Sebaiknya Anda jangan keluar grup ini agar bot tidak mati
+ ....Terimakasih....🇮🇩
+❗You should not leave this group so that the bot does not die
+ ....Thank You....🇺🇸
+•••••••••••
+"""
+
+async def ongrup():
+    try:
+        if PandaBot:
+            if Config.PRIVATE_GROUP_BOT_API_ID != 0:
+                await PandaBot.send_message(
+                    Config.PRIVATE_GROUP_BOT_API_ID,
+                    ON,
+                )
+    except BaseException:
+        pass
 
 async def join():
     try:
@@ -161,6 +183,7 @@ async def join():
 
     
 PandaBot.loop.run_until_complete(join())
+PandaBot.loop.run_until_complete(ongrup())
 print("🛠 Sedang memperoses.....")
 print("Berhasil Diaktifkan!!!")
 print(
